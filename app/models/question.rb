@@ -9,3 +9,4 @@ class Question < ActiveRecord::Base
   validates :user, presence: true
 end
 
+  
