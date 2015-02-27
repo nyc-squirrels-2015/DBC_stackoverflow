@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150226220727) do
     t.integer  "user_id",        null: false
     t.integer  "upvotable_id"
     t.string   "upvotable_type"
+    t.boolean  "is_upvote"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
