@@ -3,8 +3,8 @@
     <% if current_user %>
       <a id="logout-link" href="/logout">Logout</a>
     <% else %> 
-      <a id="login-link" href="'/login">Login</a>
-      <a id="signup-link" href="/signup">Signup</a>
+      <%= link_to "log in", login_form_path%> 
+      <%= link_to "sign up", signup_form_path%>
     <% end %>
     </div>
 </div>
