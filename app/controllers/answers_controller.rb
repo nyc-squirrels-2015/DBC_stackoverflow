@@ -18,6 +18,15 @@ class AnswersController < ApplicationController
     @answer = Answer.find_by(id: params[:id])
   end
 
+  def 
+    @answer = Answer.find_by(id: params[:id])
+    if answer.save
+      redirect_to "/"
+    else
+      redirect_to '/error'
+    end
+  end
+
   def destroy
     answer = Answer.find_by(id: params[:id])
     answer.destroy
