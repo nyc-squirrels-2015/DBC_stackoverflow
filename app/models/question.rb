@@ -3,5 +3,9 @@ class Question < ActiveRecord::Base
   has_many :answers
   has_many :comments, as: :commentable
   has_many :votes, as: :votable
+
+  validates :title, presence: true
+  validates :content, presence: true
+  validates :user, presence: true
 end
 
