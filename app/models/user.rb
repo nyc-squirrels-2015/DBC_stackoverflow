@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
   has_many :votes
 
   validates :name, presence:true, uniqueness: true
-  validates :password, presence: true
+  validates :password, presence: true, confirmation: true
 end
