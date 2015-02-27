@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :questions, :answers, :comments
+
 
 
   get '/login' => 'auth#login_form', :as => "login_form"
@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   get '/logout' => 'auth#logout', :as => "logout"
 
-
+  get '/signup' => 'auth#signup_form', :as => "signup_form"
+  post '/signup' => 'auth#signup', :as => "signup"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -62,5 +63,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
->>>>>>> user_auth login and logout
 end
