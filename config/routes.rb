@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :questions, :answers, :comments
+  resources :questions, :answers, :comments, :users
 
 
-  get '/login' => 'auth#login_form', :as => "login_form"
+  get '/login' => 'auth#login', :as => "login_form"
   post '/login' => 'auth#login', :as => "login"
 
   get '/logout' => 'auth#logout', :as => "logout"
 
-  get '/signup' => 'auth#signup_form', :as => "signup_form"
+  get '/signup' => 'auth#signup', :as => "signup_form"
   post '/signup' => 'auth#signup', :as => "signup"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

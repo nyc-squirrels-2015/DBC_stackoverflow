@@ -1,4 +1,4 @@
-class Vote < ActiveRecord::Base
+class UpVote < ActiveRecord::Base
   belongs_to :user
   belongs_to :votable, polymorphic: true
 

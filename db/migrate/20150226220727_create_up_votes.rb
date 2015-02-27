@@ -1,9 +1,9 @@
 class CreateVotes < ActiveRecord::Migration
   def change
-    create_table :votes do |t|
+    create_table :up_votes do |t|
       t.references :user, null: false
-      t.references :votable, polymorphic: true, index: true
-
+      t.references :upvotable, polymorphic: true, index: true
+      t.boolean :is_upvote
       t.timestamps
     end
   end

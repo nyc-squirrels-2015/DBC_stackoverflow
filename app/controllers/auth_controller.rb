@@ -30,6 +30,6 @@ class AuthController < ApplicationController
 
 
   def allowed_params
-    params.require(:new_user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:new_user).permit(:name, :password, :password_confirmation)
   end
 end
