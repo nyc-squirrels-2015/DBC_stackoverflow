@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :questions, :answers, :comments
 
 
   get '/login' => 'auth#login_form', :as => "login_form"
