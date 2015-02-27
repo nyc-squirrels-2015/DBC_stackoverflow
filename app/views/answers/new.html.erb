@@ -1,0 +1,10 @@
+<%= form_for(@answer) do |f| %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content %><br>
+
+  <%= f.hidden_field(:user_id, :value => session[:user_id]) %>
+  <%= f.hidden_field(:question_id, :value => @question.id) %>
+
+  <%= f.submit "submit answer" %>
+<% end %>
