@@ -9,6 +9,7 @@ describe User do
 
   # context "#name" do
   #   let(:user) {FactoryGirl.build :user, password: "password"}
-  #   it ""
+  #   it "" do
+  #   end
   # end
 end
