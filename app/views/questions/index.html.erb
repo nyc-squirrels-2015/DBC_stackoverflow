@@ -2,12 +2,7 @@
 <div class="question">
 <% @questions.each do |question| %>
   <%= link_to "#{question.title}", question_path(question)%><br>
-  <%#= link_to "∆", '/upvote/' + question.id.to_s, class: "upvote", id: "#{question.id}" %> upvote
-<!--    | <span id="question<%= question.id %>"><%= question.question_votes.count %></span> votes |
-    by <%#= question.user.name %> | <%#= question.comments.count %> comments
-  <br><br> -->
 <% end %>
 
 <%= link_to "Create new question", new_question_path %><br>
-<%= link_to "Logout", logout_path %>
 </div>

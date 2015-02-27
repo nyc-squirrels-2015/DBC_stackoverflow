@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :questions, :answers, :comments
 
+  root 'questions#index'
 
   get '/login' => 'auth#login_form', :as => "login_form"
   post '/login' => 'auth#login', :as => "login"

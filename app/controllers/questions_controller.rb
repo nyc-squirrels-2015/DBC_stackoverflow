@@ -1,10 +1,15 @@
 class QuestionsController < ApplicationController
 
   before_filter :ensure_current_user
+  skip_before_filter :ensure_current_user, :only => [:index]
 
   def show
     @question = Question.find_by(id: params[:id])
     @answers = Answer.find_by(question_id: params[:id]) 
+  end
+
+  def index
+    @questions = Question.all
   end
 
   def new
