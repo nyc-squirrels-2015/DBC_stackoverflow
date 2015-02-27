@@ -1,0 +1,13 @@
+<%= @answer.content %><br>
+
+<% if @answer.user_id == session[:user_id] %>
+  <%= link_to "edit", edit_answer_path(@answer)%>
+  <%= link_to "delete", answer_path(@answer), method: "delete" %><br>
+<% end %>
+
+<h3>Comments:</h3>
+
+<%= render partial: "comments/index", locals: {comments: @comments} %>
+
+<%= link_to "Comment", new_answer_comment_path(@answer, @comment) %>
+<%= link_to "Back", answers_path %>
