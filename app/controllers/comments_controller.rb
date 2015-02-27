@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
   end
 
   def create
+<<<<<<< HEAD
     if params[:question_id]
       parent = Question.find(params[:question_id])
       q_id = parent.id
@@ -64,7 +65,14 @@ class CommentsController < ApplicationController
     else
       redirect_to answer_path(@comment.commentable)
     end
-    # redirect_to question_path
+
+    @comment = Comment.create(comment_params)
+
+      if @comment.save
+        redirect_to comments_path
+      else
+        p @comment.errors
+      end
   end
 
 
@@ -74,6 +82,5 @@ class CommentsController < ApplicationController
   def comment_params
     # p params[:comment]
     params.require(:comment).permit(:content, :user_id)
-
   end
 end
