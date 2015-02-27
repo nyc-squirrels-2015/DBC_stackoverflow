@@ -5,6 +5,7 @@ describe User do
     # let(:user) {FactoryGirl.build :user, password:"123"}
     it { should validate_presence_of :name }
     it { should validate_presence_of :password }
+    it { should validate_confirmation_of :password }
   end
 
   # context "#name" do
