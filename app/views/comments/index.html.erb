@@ -1,5 +1,5 @@
 <ol>
   <% @all_comments.each do |comment| %>
-    <li><%=  comment.content %> | <%= comment.user.name %></li>
+    <li><%= comment.content %> | <%= comment.user.name %></li>
   <% end %>
 </ol>
