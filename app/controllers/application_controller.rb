@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_current_user
-    redirect_to '/' unless current_user
+    redirect_to '/login' unless current_user
   end
 
   
