@@ -14,12 +14,12 @@ Rails.application.routes.draw do
 
   get 'error' => 'error#error', :as =>'error'
 
-  get '/login' => 'auth#login_form', :as => "login_form"
+  get '/login' => 'auth#login', :as => "login_form"
   post '/login' => 'auth#login', :as => "login"
 
   get '/logout' => 'auth#logout', :as => "logout"
 
-  get '/signup' => 'auth#signup_form', :as => "signup_form"
+  get '/signup' => 'auth#signup', :as => "signup_form"
   post '/signup' => 'auth#signup', :as => "signup"
 
   post '/upvote' => 'votes#upvote', :as => "upvote"
