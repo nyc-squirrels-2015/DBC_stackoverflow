@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :questions, :answers, :comments
+
+  resources :questions do
+    resources :comments
+  end
+
+  resources :answers do
+    resources :comments
+  end
 
   root 'questions#index'
 
@@ -11,10 +18,6 @@ Rails.application.routes.draw do
 
   get '/signup' => 'auth#signup_form', :as => "signup_form"
   post '/signup' => 'auth#signup', :as => "signup"
-
-  post '/upvote' => 'votes#upvote', :as => "upvote"
-  post '/downvote' => 'votes#downvote', :as => "downvote"
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
