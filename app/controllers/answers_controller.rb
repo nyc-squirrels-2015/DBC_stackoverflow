@@ -18,7 +18,7 @@ class AnswersController < ApplicationController
     @answer = Answer.find_by(id: params[:id])
   end
 
-  def 
+  def update
     @answer = Answer.find_by(id: params[:id])
     if answer.save
       redirect_to "/"
