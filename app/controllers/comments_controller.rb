@@ -25,9 +25,9 @@ class CommentsController < ApplicationController
     new_comment = parent.comments.build(comment_params)
     if new_comment.save
         redirect_to question_path(q_id)
-      else
-        p new_comment.errors
-      end
+    else
+      p new_comment.errors
+    end
   end
 
 
