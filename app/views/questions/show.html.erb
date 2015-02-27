@@ -1,5 +1,5 @@
 <h2> <%= @question.title %> </h2>
-<%= @question.body %><br>
+<%= @question.content %><br>
 
 <% if @question.user_id == session[:user_id] %>
   <%= link_to "edit", edit_question_path(@question)%>

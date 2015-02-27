@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
   before_filter :ensure_current_user
-  skip_before_filter :ensure_current_user, :only => [:index]
+  skip_before_filter :ensure_current_user, :only => [:index, :show]
 
   def show
     @question = Question.find_by(id: params[:id])
