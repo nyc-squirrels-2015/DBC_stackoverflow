@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   get '/logout' => 'auth#logout', :as => "logout"
 
-  get '/signup' => 'auth#signup', :as => "signup_form"
+  get '/signup' => 'auth#signup_form', :as => "signup_form"
   post '/signup' => 'auth#signup', :as => "signup"
 
   post '/upvote' => 'votes#upvote', :as => "upvote"
