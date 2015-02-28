@@ -17,9 +17,9 @@ class AuthController < ApplicationController
   end
 
   def signup
-    @new_user = User.new(allowed_params)
-    if @new_user.save
-      session[:user_id] = @new_user.id
+    @user = User.new(allowed_params)
+    if @user.save
+      session[:user_id] = @user.id
       redirect_to root_path
     else
       redirect_to login_form_path
@@ -27,6 +27,14 @@ class AuthController < ApplicationController
   end
 
   def allowed_params
-    params.require(:new_user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :password, :password_confirmation)
+  end
+
+  def login_form
+    @logging_or_signing_in = true
+  end
+
+  def signup_form
+    @logging_or_signing_in = true
   end
 end
