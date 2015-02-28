@@ -14,7 +14,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-<<<<<<< HEAD
     if params[:question_id]
       parent = Question.find(params[:question_id])
       q_id = parent.id
