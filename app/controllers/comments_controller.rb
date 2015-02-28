@@ -54,8 +54,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @parent = @comment.commentable
     @comment = Comment.find(params[:id])
+    @parent = @comment.commentable
     @comment.destroy
 
     if @comment.commentable.model_name.name == "Question"
