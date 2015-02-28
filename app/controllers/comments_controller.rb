@@ -53,6 +53,19 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @parent = @comment.commentable
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+
+    if @comment.commentable.model_name.name == "Question"
+      redirect_to question_path(@comment.commentable)
+    else
+      redirect_to answer_path(@comment.commentable)
+    end
+    # redirect_to question_path
+  end
+
 
 
   private

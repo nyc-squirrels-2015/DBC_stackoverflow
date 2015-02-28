@@ -1,5 +1,11 @@
 <ol>
   <% comments.each do |comment| %>
     <li><%= comment.content %> | <%= comment.user.name %></li>
+      <%= form_for [comment.commentable, comment], method:"edit" do |f| %>
+        <%= f.submit value:"Edit" %>
+      <% end %>
+      <%= form_for [comment.commentable, comment], method:"delete" do |f| %>
+        <%= f.submit value:"Delete" %>
+      <% end %>
   <% end %>
 </ol>
