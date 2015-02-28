@@ -29,4 +29,12 @@ class AuthController < ApplicationController
   def allowed_params
     params.require(:user).permit(:name, :password, :password_confirmation)
   end
+
+  def login_form
+    @logging_or_signing_in = true
+  end
+
+  def signup_form
+    @logging_or_signing_in = true
+  end
 end
