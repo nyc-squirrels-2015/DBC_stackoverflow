@@ -8,6 +8,9 @@
 
 <h3>Comments:</h3>
 
+<%= render partial:'comments/index', locals:{question: @question, comments:@question.comments} %>
+
+
 <%#= render partial: "comments/index", locals: {comments: @comments} %>
 
 <%#= link_to "Comment", new_question_comment_path(@question, @comment) %>

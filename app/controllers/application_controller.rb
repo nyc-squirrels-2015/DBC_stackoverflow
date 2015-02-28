@@ -5,11 +5,12 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    if session[:user_id]
-      true
-    else
-      false
-    end
+    # if session[:user_id]
+    #   true
+    # else
+    #   false
+    # end
+    User.first
   end
 
   def ensure_current_user
@@ -17,5 +18,5 @@ class ApplicationController < ActionController::Base
   end
 
 
-  
+
 end

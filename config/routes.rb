@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :questions, :answers, :comments
+
+  resources :questions do
+    resources :comments
+  end
+
+  resources :answers do
+    resources :comments
+  end
 
   root 'questions#index'
 
