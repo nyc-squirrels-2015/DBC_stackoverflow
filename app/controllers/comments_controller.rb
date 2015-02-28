@@ -46,6 +46,7 @@ class CommentsController < ApplicationController
     #   q_id = parent.question.id
     # end
     @comment.update_attributes(comment_params)
+
     if @comment.commentable.model_name.name == "Question"
       redirect_to question_path(@comment.commentable)
     else
