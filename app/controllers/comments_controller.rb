@@ -30,12 +30,35 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @comment = Comment.find(params[:id])
+    @parent = @comment.commentable
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+
+    # if params[:question_id]
+    #   parent = Question.find(params[:question_id])
+    #   q_id = parent.id
+    # else
+    #   parent = Answer.find(params[:answer_id])
+    #   q_id = parent.question.id
+    # end
+    @comment.update_attributes(comment_params)
+    if @comment.commentable.model_name.name == "Question"
+      redirect_to question_path(@comment.commentable)
+    else
+      redirect_to answer_path(@comment.commentable)
+    end
+  end
+
 
 
   private
 
   def comment_params
-    p params[:comment]
+    # p params[:comment]
     params.require(:comment).permit(:content, :user_id)
 
   end
