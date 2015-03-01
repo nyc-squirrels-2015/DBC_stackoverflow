@@ -6,7 +6,7 @@
   <%= link_to "delete", question_path(@question), method: "delete" %><br>
 <% end %>
 
-<%= render 'answer/show' %>
+<%= render partial: 'answer/show' %>
 <%= render partial:'comments/form', locals: {parent: Question.find_by(id: @question.id), comment: Comment.new} %>
 <h3>Comments:</h3>
 

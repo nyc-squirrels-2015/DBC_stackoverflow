@@ -1,8 +1,8 @@
 <ol>
   <% comments.each do |comment| %>
     <li><%= comment.content %> | <%= comment.user.name %></li>
-    
-    <% if question %>
+
+    <% if @question %>
       <%= button_to 'Edit', edit_question_comment_path(question, comment), method: :get %>
     <% else %>
       <%= button_to 'Edit', edit_answer_comment_path(answer, comment), method: :get %>
