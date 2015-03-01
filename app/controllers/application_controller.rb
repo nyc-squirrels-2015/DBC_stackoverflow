@@ -5,16 +5,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    # if session[:user_id]
-    #   true
-    # else
-    #   false
-    # end
-    User.first
+    User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
   def ensure_current_user
-    redirect_to '/login' unless current_user
+    redirect_to root_path unless current_user
   end
 
 
