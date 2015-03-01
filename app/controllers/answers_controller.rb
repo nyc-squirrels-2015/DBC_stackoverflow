@@ -1,7 +1,6 @@
 class AnswersController < ApplicationController
 
   def index 
-    @answer = Answer.all
   end
   
   def new

@@ -9,10 +9,11 @@
 <%= render partial:'comments/form', locals: {parent: Question.find_by(id: @question.id), comment: Comment.new} %>
 <h3>Comments:</h3>
 
-<%= render partial: 'comments/index' %>
+<%= render partial:'comments/index', locals:{question: @question, 
+  comments: @question.comments} %>
 
 <h3>Answers</h3>
-<%= render partial:'answers/index', object: @answer%>
+<%= render partial:'answers/index', locals: {answers: @answers} %>
 
 
 
