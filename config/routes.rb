@@ -3,10 +3,12 @@ Rails.application.routes.draw do
 
   resources :questions do
     resources :comments
+    resources :votes
   end
 
   resources :answers do
     resources :comments
+    resources :votes 
   end
 
   root 'questions#index'
