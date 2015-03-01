@@ -6,8 +6,8 @@ class AnswersController < ApplicationController
   end
 
   def create
-    answer = Answer.new(answer_params)
-    if answer.save
+    @answer = Answer.new(answer_params)
+    if @answer.save
       redirect_to "/"
     else
       redirect_to '/error'
@@ -27,9 +27,14 @@ class AnswersController < ApplicationController
     end
   end
 
+  def show 
+    @answer = Answer.find(params[:id])
+    @answers = Answer.find_by(question_id: params[:id])
+  end
+
   def destroy
-    answer = Answer.find(params[:id])
-    answer.destroy
+    @answer = Answer.find(params[:id])
+    @answer.destroy
     redirect_to '/'
   end
 

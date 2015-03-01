@@ -1,28 +1,30 @@
 class VotesController < ApplicationController
+
 	def upvote 
 		@parent = Question.find(params[:question_id]) if params[:question_id]
-	    @parent = Answer.find(params[:answer_id]) if params[:answer_id]
-	
+    	@parent = Answer.find(params[:answer_id]) if params[:answer_id]
+		@vote = Vote.new
+
 		if params[:question_id]
-	     	parent = Question.find(params[:question_id])
-	      	q_id = parent.id
+      		parent = Question.find(params[:question_id])
+      		q_id = parent.id
     	else
-		    parent = Answer.find(params[:answer_id])
-		    q_id = parent.question.id
+      		parent = Answer.find(params[:answer_id])
+      		q_id = parent.question.id
     	end
 
     	new_vote = parent.votes.build(upvote_params)
-    	if new_vote.save
-    		redirect_to question_path(q_id)
+    	if 	new_vote.save
+        	redirect_to question_path(q_id)
     	else
-    		p new_vote.errors
+      		p new_vote.errors
     	end
-	end
+  	end
 
 	def downvote 
 		@parent = Question.find(params[:question_id]) if params[:question_id]
 	    @parent = Answer.find(params[:answer_id]) if params[:answer_id]
-	
+		@vote = Vote.new
 		if params[:question_id]
 	     	parent = Question.find(params[:question_id])
 	      	q_id = parent.id
@@ -30,8 +32,8 @@ class VotesController < ApplicationController
 		    parent = Answer.find(params[:answer_id])
 		    q_id = parent.question.id
     	end
-
-    	new_vote = parent.votes.build(downvote_params)
+    		p @parent
+    	new_vote = @parent.votes.build(downvote_params)
     	if new_vote.save
     		redirect_to question_path(q_id)
     	else
