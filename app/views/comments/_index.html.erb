@@ -1,10 +1,10 @@
 <ol>
   <% comments.each do |comment| %>
     <li><%= comment.content %> | <%= comment.user.name %></li>
-    <% if question %>
-      <%= button_to 'Edit', edit_question_comment_path(question, comment), method: :get %>
+
+    <% if @question %>
+      <%= button_to 'Edit', edit_question_comment_path(@question, comment), method: :get %>
     <% else %>
-    <!-- to do later -->
       <%= button_to 'Edit', edit_answer_comment_path(answer, comment), method: :get %>
     <% end %>
 

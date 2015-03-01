@@ -1,0 +1,10 @@
+<% answers.each do |answer| %>
+	<%= answer.content %><br>
+  <%= render partial:'comments/index', 
+locals: {answer: answer, comments: answer.comments} %>
+<% end %>
+
+
+<h3>Comments:</h3>
+
+

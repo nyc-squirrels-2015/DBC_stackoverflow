@@ -7,7 +7,6 @@
 
 <h3>Comments:</h3>
 
-<%= render partial: "comments/index", locals: {comments: @comments} %>
-
+<%= render partial:'comments/index', locals:{answer: @answer, comments:@answer.comments} %>
 <%= link_to "Comment", new_answer_comment_path(@answer, @comment) %>
 <%= link_to "Back", answers_path %>
