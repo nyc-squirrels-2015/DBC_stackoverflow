@@ -2,13 +2,15 @@ Rails.application.routes.draw do
 
 
   resources :questions do
+    post '/upvote' => 'votes#upvote', :as => 'upvote_form'
+    post '/downvote' => 'votes#downvote', :as => 'downvote_form'
     resources :comments
-    resources :votes
   end
 
   resources :answers do
+    post '/upvote' => 'votes#upvote', :as => 'upvote_form'
+    post '/downvote' => 'votes#downvote', :as => 'downvote_form'
     resources :comments
-    resources :votes 
   end
 
   root 'questions#index'
