@@ -1,19 +1,12 @@
 Rails.application.routes.draw do
 
-
   resources :questions do
-    get '/upvote' => 'votes#upvote_form', :as => 'upvote_form'
-    post '/upvote' => 'votes#upvote', :as => 'upvote'
-    get '/downvote' => 'votes#downvote_form', :as => 'downvote_form'
-    post '/downvote' => 'votes#downvote', :as => 'downvote'
+    resources :votes
     resources :comments
   end
 
   resources :answers do
-    get '/upvote' => 'votes#upvote_form', :as => 'upvote_form'
-    post '/upvote' => 'votes#upvote', :as => 'upvote'
-    get '/downvote' => 'votes#downvote_form', :as => 'downvote_form'
-    post '/downvote' => 'votes#downvote', :as => 'downvote'
+    resources :votes
     resources :comments
   end
 
@@ -26,9 +19,6 @@ Rails.application.routes.draw do
 
   get '/signup' => 'auth#signup_form', :as => "signup_form"
   post '/signup' => 'auth#signup', :as => "signup"
-
-  post '/upvote' => 'votes#upvote', :as => "upvote"
-  post '/downvote' => 'votes#downvote', :as => "downvote"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,3 +1,4 @@
+
 <h2> <%= @question.title %> </h2>
 <%= @question.content %><br>
 
@@ -6,6 +7,10 @@
   <%= link_to "delete", question_path(@question), method: "delete" %><br>
 <% end %>
 
+<%= render '/votes/index' %> votes
+<%= render partial: 'votes/form',locals: {parent: Question.find_by(id: @question.id), vote: Vote.new} %>
+
+<br>
 <%= render partial:'comments/form', locals: {parent: Question.find_by(id: @question.id), comment: Comment.new} %>
 <h3>Comments:</h3>
 
