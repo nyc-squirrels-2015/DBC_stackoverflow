@@ -26,6 +26,8 @@ class AuthController < ApplicationController
     end
   end
 
+  private 
+
   def allowed_params
     params.require(:user).permit(:name, :password, :password_confirmation)
   end

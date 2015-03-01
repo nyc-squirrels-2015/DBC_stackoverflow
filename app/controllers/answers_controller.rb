@@ -15,11 +15,11 @@ class AnswersController < ApplicationController
   end
 
   def edit
-    @answer = Answer.find_by(id: params[:id])
+    @answer = Answer.find(params[:id])
   end
 
   def update
-    @answer = Answer.find_by(id: params[:id])
+    @answer = Answer.find(params[:id])
     if answer.save
       redirect_to "/"
     else
@@ -28,7 +28,7 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    answer = Answer.find_by(id: params[:id])
+    answer = Answer.find(params[:id])
     answer.destroy
     redirect_to '/'
   end

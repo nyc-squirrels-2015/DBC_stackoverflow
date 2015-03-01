@@ -7,6 +7,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find_by(id: params[:id])
     @answers = Answer.find_by(question_id: params[:id])
+
   end
 
   def index
@@ -27,11 +28,11 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question = Question.find_by(id: params[:id])
+    @question = Question.find_by(params[:id])
   end
 
   def update
-    @question = Question.find_by(id: params[:id])
+    @question = Question.find_by(params[:id])
     if @question.update_attributes(question_params)
       redirect_to question_path(@question)
     else
@@ -40,7 +41,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    question = Question.find_by(id: params[:id])
+    question = Question.find(params[:id])
     question.destroy
     redirect_to '/'
   end
