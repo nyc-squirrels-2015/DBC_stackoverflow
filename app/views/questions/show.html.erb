@@ -6,12 +6,13 @@
   <%= link_to "delete", question_path(@question), method: "delete" %><br>
 <% end %>
 
-<%= render partial: 'answer/show' %>
 <%= render partial:'comments/form', locals: {parent: Question.find_by(id: @question.id), comment: Comment.new} %>
 <h3>Comments:</h3>
 
-<%= render partial:'comments/index', locals:{question: @question, comments:@question.comments} %>
+<%= render partial: 'comments/index' %>
 
+<h3>Answers</h3>
+<%= render partial:'answers/index', object: @answer%>
 
 
 

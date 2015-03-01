@@ -1,4 +1,9 @@
 class AnswersController < ApplicationController
+
+  def index 
+    @answer = Answer.all
+  end
+  
   def new
     @answer = Answer.new
     @question = Question.find_by(id: params[:question_id])
