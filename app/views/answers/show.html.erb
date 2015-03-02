@@ -1,5 +1,5 @@
 <%= @answer.content %><br>
-
+<%= @answer.votes.count %> Votes
 <% if @answer.user_id == session[:user_id] %>
   <%= link_to "edit", edit_answer_path(@answer)%>
   <%= link_to "delete", answer_path(@answer), method: "delete" %><br>
