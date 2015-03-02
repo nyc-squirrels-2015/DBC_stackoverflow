@@ -1,8 +1,8 @@
 <% answers.each do |answer| %>
 	<%= answer.content %><br>
-	<%= answer.votes.count %> Votes
+	<%= answer.total_answer_votes %> Votes
   <p><b>Answer Comments:</b></p>
-  <%= render partial:'comments/index', 
+  <%= render partial:'comments/index',
 locals: {answer: answer, comments: answer.comments} %>
 <%= render partial: 'votes/form',locals: {parent: Answer.find_by(id: @question.id), vote: Vote.new} %>
 <%= render partial:'comments/form',

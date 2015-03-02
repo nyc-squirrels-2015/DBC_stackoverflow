@@ -7,4 +7,8 @@ class Answer < ActiveRecord::Base
   validates :content, presence: true
   validates :user, presence: true
   validates :question, presence: true
+
+  def total_answer_votes
+    self.votes.count
+  end
 end
