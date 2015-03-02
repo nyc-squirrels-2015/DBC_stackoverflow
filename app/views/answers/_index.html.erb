@@ -1,10 +1,10 @@
 <% answers.each do |answer| %>
 	<%= answer.content %><br>
+  <p><b>Answer Comments:</b></p>
   <%= render partial:'comments/index', 
 locals: {answer: answer, comments: answer.comments} %>
+<%= render partial:'comments/form',
+locals: {parent: Answer.find_by(id: @question.id), comment: Comment.new}
+ %>
 <% end %>
-
-
-<h3>Comments:</h3>
-
 
