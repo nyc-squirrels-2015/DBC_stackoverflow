@@ -7,7 +7,8 @@
   <%= link_to "delete", question_path(@question), method: "delete" %><br>
 <% end %>
 
-<%= render '/votes/index' %> votes
+<%= @question.votes.count%> votes
+
 <%= render partial: 'votes/form',locals: {parent: Question.find_by(id: @question.id), vote: Vote.new} %>
 
 <br>
