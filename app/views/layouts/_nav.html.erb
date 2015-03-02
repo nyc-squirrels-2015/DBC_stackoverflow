@@ -1,0 +1,17 @@
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div id="auth-toolbar" class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to "ShackOverFlow", root_path, class: "navbar-brand" %>
+    </div>
+    <% unless @logging_or_signing_in %>
+      <ul class="nav navbar-nav">
+      <% if current_user %>
+        <li><%= link_to "log out", logout_path%></li>
+      <% else %> 
+        <li><%= link_to "log in", login_form_path%></li>
+        <li><%= link_to "sign up", signup_form_path%></li>
+      <% end %>
+      </ul>
+    <% end %>
+    </div>
+</nav>

@@ -1,0 +1,13 @@
+
+<% @questions.each_with_index do |question, i| %>
+<div id =<%="#{i}"%> class="panel panel-default">
+  <div class="panel-heading">
+    <h3><%= link_to "#{question.title}", question_path(question)%></h3>
+  </div>
+  <div class="panel-body">
+    <%= question.content %>
+  </div>
+</div>
+<% end %>
+<%= link_to "Create new question", new_question_path %>
+

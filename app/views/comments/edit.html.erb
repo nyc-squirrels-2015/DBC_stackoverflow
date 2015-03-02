@@ -1,0 +1,15 @@
+<h1>Edit Comment</h1>
+
+<%= form_for [@parent, @comment]  do |f| %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content, cols:50, rows: 10, value: @comment.content %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
+
+  <%= f.submit %>
+
+   <%= form_for [@comment.commentable, @comment], method:"delete" do |f| %>
+        <%= f.submit value:"Delete" %>
+      <% end %>
+<% end %>
