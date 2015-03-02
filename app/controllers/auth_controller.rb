@@ -13,7 +13,7 @@ class AuthController < ApplicationController
 
   def logout
     session.clear
-    redirect_to login_form_path
+    redirect_to root_path
   end
 
   def signup
@@ -22,7 +22,7 @@ class AuthController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      redirect_to login_form_path
+      redirect_to '/error'
     end
   end
 
