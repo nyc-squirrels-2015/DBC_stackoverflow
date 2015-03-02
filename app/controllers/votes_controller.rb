@@ -4,6 +4,7 @@ class VotesController < ApplicationController
     @parent = Question.find(params[:question_id]) if params[:question_id]
     @parent = Answer.find(params[:answer_id]) if params[:answer_id]
     @votes = Vote.all
+    @parent_votes = @parent.votes.all
   end
   
   def new 
