@@ -12,7 +12,8 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
     if @answer.save
-      redirect_to "/"
+      question = answer_params[:question_id]
+      redirect_to question_path(question)
     else
       redirect_to '/error'
     end

@@ -1,19 +1,12 @@
 Rails.application.routes.draw do
 
-
   resources :questions do
-    get '/upvote' => 'votes#upvote_form', :as => 'upvote_form'
-    post '/upvote' => 'votes#upvote', :as => 'upvote'
-    get '/downvote' => 'votes#downvote_form', :as => 'downvote_form'
-    post '/downvote' => 'votes#downvote', :as => 'downvote'
+    resources :votes
     resources :comments
   end
 
   resources :answers do
-    get '/upvote' => 'votes#upvote_form', :as => 'upvote_form'
-    post '/upvote' => 'votes#upvote', :as => 'upvote'
-    get '/downvote' => 'votes#downvote_form', :as => 'downvote_form'
-    post '/downvote' => 'votes#downvote', :as => 'downvote'
+    resources :votes
     resources :comments
   end
 

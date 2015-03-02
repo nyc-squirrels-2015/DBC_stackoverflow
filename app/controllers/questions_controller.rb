@@ -7,6 +7,8 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find_by(id: params[:id])
     @answers = @question.answers
+    @parent = Question.find(params[:question_id]) if params[:question_id]
+    @parent = Answer.findx(params[:answer_id]) if params[:answer_id]
   end
 
   def index
