@@ -43,21 +43,22 @@ ActiveRecord::Schema.define(version: 20150226220727) do
     t.datetime "updated_at"
   end
 
+  create_table "up_votes", force: :cascade do |t|
+    t.integer  "user_id",        null: false
+    t.integer  "upvotable_id"
+    t.string   "upvotable_type"
+    t.boolean  "is_upvote"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "up_votes", ["upvotable_type", "upvotable_id"], name: "index_up_votes_on_upvotable_type_and_upvotable_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name",            null: false
     t.string   "password_digest", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "votes", force: :cascade do |t|
-    t.integer  "user_id",      null: false
-    t.integer  "votable_id"
-    t.string   "votable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "votes", ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id", using: :btree
 
 end

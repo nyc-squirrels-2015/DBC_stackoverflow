@@ -1,5 +1,5 @@
 class AuthController < ApplicationController
-  skip_before_filter :ensure_current_user
+  # skip_before_filter :ensure_current_user
 
   def login
     @user = User.find_by(name: params[:name])

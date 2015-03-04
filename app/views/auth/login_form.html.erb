@@ -1,11 +1,7 @@
-<%= form_for(:auth, url: login_path) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-
-    <%= f.submit "Log in" %>
+<%= form_tag(login_path) do %>
+<%= label_tag :name, "Name" %>
+<%= text_field_tag :name %>
+<%= label_tag :password, "password" %>
+<%= password_field_tag :password %>
+<%= submit_tag "login"  %>
 <% end %>
-
-Or <%= link_to "Signup", signup_path  %>
